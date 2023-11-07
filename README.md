@@ -3,7 +3,7 @@
 ## TODO:
 
 - [x] User
-- [ ] Ticket
+- [x] Ticket
 - [x] Tag
 - [ ] Comment
 - [ ] Like

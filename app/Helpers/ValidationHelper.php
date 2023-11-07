@@ -14,6 +14,22 @@ class ValidationHelper
             $type = ErrorTypeEnum::NAME_REQUIRED;
         }
 
+        else if (isset($failedRules['name']['String'])) {
+            $type = ErrorTypeEnum::NAME_SHOULD_BE_STRING;
+        }
+
+        else if (isset($failedRules['name']['Max'])) {
+            $type = ErrorTypeEnum::NAME_MAX_255;
+        }
+
+        else if (isset($failedRules['description']['Required'])) {
+            $type = ErrorTypeEnum::DESCRIPTION_REQUIRED;
+        }
+
+        else if (isset($failedRules['description']['String'])) {
+            $type = ErrorTypeEnum::DESCRIPTION_SHOULD_BE_STRING;
+        }
+
         else if (isset($failedRules['email']['Required'])) {
             $type = ErrorTypeEnum::EMAIL_REQUIRED;
         }
@@ -40,6 +56,14 @@ class ValidationHelper
 
         else if (isset($failedRules['password']['Confirmed'])) {
             $type = ErrorTypeEnum::PASSWORD_NOT_CONFIRMED;
+        }
+
+        else if (isset($failedRules['type']['Required'])) {
+            $type = ErrorTypeEnum::TYPE_REQUIRED;
+        }
+
+        else if (isset($failedRules['type']['In'])) {
+            $type = ErrorTypeEnum::TYPE_SHOULD_BE_ISSUE_OR_SUGGESTION;
         }
 
         return $type;

@@ -15,6 +15,10 @@ enum ErrorTypeEnum: string
 
     // Validation types
     case NAME_REQUIRED = 'name_required';
+    case NAME_SHOULD_BE_STRING = 'name_should_be_string';
+    case NAME_MAX_255 = 'name_max_255';
+    case DESCRIPTION_REQUIRED = 'description_required';
+    case DESCRIPTION_SHOULD_BE_STRING = 'description_should_be_string';
     case EMAIL_REQUIRED = 'email_required';
     case EMAIL_EXISTS = 'email_exists';
     case EMAIL_NOT_EXISTS = 'email_not_exists';
@@ -23,4 +27,6 @@ enum ErrorTypeEnum: string
     case PASSWORD_MAX = 'password_max_one_hundred';
     case PASSWORD_NOT_CONFIRMED = 'password_not_confirmed';
     case INCORRECT_PASSWORD = 'incorrect_password';
+    case TYPE_REQUIRED = 'type_required';
+    case TYPE_SHOULD_BE_ISSUE_OR_SUGGESTION = 'type_should_be_issue_or_suggestion';
 }
