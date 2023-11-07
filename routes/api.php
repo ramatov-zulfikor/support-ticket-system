@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +20,7 @@ Route::controller('AuthController')->group(function () {
 
 Route::controller('TagController')->prefix('tags')->group(function () {
     Route::get('/', 'index');
+    Route::get('find', 'find');
 });
 
 Route::controller('TicketController')->prefix('tickets')->group(function () {

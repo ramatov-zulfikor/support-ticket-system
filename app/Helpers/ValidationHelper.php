@@ -66,6 +66,10 @@ class ValidationHelper
             $type = ErrorTypeEnum::TYPE_SHOULD_BE_ISSUE_OR_SUGGESTION;
         }
 
+        else if (isset($failedRules['tags_ids']['Array'])) {
+            $type = ErrorTypeEnum::TAGS_IDS_NOT_ARRAY;
+        }
+
         return $type;
     }
 }

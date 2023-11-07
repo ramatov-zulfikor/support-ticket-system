@@ -29,4 +29,5 @@ enum ErrorTypeEnum: string
     case INCORRECT_PASSWORD = 'incorrect_password';
     case TYPE_REQUIRED = 'type_required';
     case TYPE_SHOULD_BE_ISSUE_OR_SUGGESTION = 'type_should_be_issue_or_suggestion';
+    case TAGS_IDS_NOT_ARRAY = 'tags_ids_not_array';
 }

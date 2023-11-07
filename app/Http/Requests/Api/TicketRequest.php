@@ -20,10 +20,15 @@ class TicketRequest extends FormRequest
 
     public function rules(): array
     {
+        if ($this->method() === 'DELETE') {
+            return [];
+        }
+
         return [
             'name' => ['required', 'string', 'max:255'],
             'description' => ['required', 'string'],
-            'type' => ['required', 'in:issue,suggestion']
+            'type' => ['required', 'in:issue,suggestion'],
+            'tags_ids' => ['nullable', 'array']
         ];
     }
 

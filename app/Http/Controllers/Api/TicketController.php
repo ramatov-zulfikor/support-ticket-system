@@ -8,6 +8,7 @@ use App\Http\Requests\Api\TicketRequest;
 use App\Http\Resources\Api\TicketListResource;
 use App\Http\Resources\Api\TicketResource;
 use App\Models\Ticket;
+use App\Services\TicketService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
@@ -33,9 +34,9 @@ class TicketController extends Controller
         return TicketListResource::collection($tickets);
     }
 
-    public function store(TicketRequest $request): JsonResponse
+    public function store(TicketRequest $request, TicketService $service): JsonResponse
     {
-        $ticket = Ticket::query()->create($request->validated());
+        $ticket = $service->create($request->validated());
 
         return response()->json([
             'data' => TicketResource::make($ticket)
@@ -47,9 +48,9 @@ class TicketController extends Controller
         return TicketResource::make($ticket);
     }
 
-    public function update(TicketRequest $request, Ticket $ticket): JsonResponse
+    public function update(TicketRequest $request, Ticket $ticket, TicketService $service): JsonResponse
     {
-        $ticket->update($request->validated());
+        $ticket = $service->update($ticket, $request->validated());
 
         return response()->json([
             'data' => TicketResource::make($ticket)
