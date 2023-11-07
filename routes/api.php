@@ -28,6 +28,10 @@ Route::controller('TicketController')->prefix('tickets')->group(function () {
     Route::get('{ticket}', 'show');
 });
 
+Route::controller('TicketCommentController')->prefix('tickets/{ticket}/comments')->group(function () {
+    Route::get('/', 'index');
+});
+
 Route::middleware('auth:sanctum')->group(function () {
     Route::controller('AuthController')->group(function () {
         Route::post('logout', 'logout');
@@ -37,5 +41,11 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::post('/', 'store');
         Route::put('{ticket}', 'update');
         Route::delete('{ticket}', 'destroy');
+    });
+
+    Route::controller('TicketCommentController')->prefix('tickets/{ticket}/comments')->group(function () {
+        Route::post('/', 'store');
+        Route::put('{comment}', 'update');
+        Route::delete('{comment}', 'destroy');
     });
 });

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Enums\TicketTypeEnum;
+use App\Traits\Commentable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -10,7 +11,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Ticket extends Model
 {
-    use HasFactory;
+    use HasFactory, Commentable;
 
     protected $fillable = [
         'author_id',

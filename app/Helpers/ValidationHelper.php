@@ -70,6 +70,10 @@ class ValidationHelper
             $type = ErrorTypeEnum::TAGS_IDS_NOT_ARRAY;
         }
 
+        else if (isset($failedRules['text']['Required'])) {
+            $type = ErrorTypeEnum::TEXT_REQUIRED;
+        }
+
         return $type;
     }
 }

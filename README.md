@@ -5,6 +5,6 @@
 - [x] User
 - [x] Ticket
 - [x] Tag
-- [ ] Comment
+- [x] Comment
 - [ ] Like
 - [ ] API documentation
