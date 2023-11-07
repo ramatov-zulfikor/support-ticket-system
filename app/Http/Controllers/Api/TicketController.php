@@ -38,9 +38,9 @@ class TicketController extends Controller
     {
         $ticket = $service->create($request->validated());
 
-        return response()->json([
-            'data' => TicketResource::make($ticket)
-        ], 201);
+        return TicketResource::make($ticket)
+            ->response()
+            ->setStatusCode(201);
     }
 
     public function show(Ticket $ticket): TicketResource
@@ -48,13 +48,11 @@ class TicketController extends Controller
         return TicketResource::make($ticket);
     }
 
-    public function update(TicketRequest $request, Ticket $ticket, TicketService $service): JsonResponse
+    public function update(TicketRequest $request, Ticket $ticket, TicketService $service): TicketResource
     {
         $ticket = $service->update($ticket, $request->validated());
 
-        return response()->json([
-            'data' => TicketResource::make($ticket)
-        ]);
+        return TicketResource::make($ticket);
     }
 
     public function destroy(TicketRequest $request, Ticket $ticket): JsonResponse
