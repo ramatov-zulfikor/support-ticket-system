@@ -4,7 +4,7 @@
 
 - [x] User
 - [ ] Ticket
-- [ ] Tag
+- [x] Tag
 - [ ] Comment
 - [ ] Like
 - [ ] API documentation
