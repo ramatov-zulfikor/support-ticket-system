@@ -59,7 +59,7 @@ class TicketController extends Controller
         return TicketResource::make($ticket);
     }
 
-    public function close(TicketRequest $request, Ticket $ticket)
+    public function close(TicketRequest $request, Ticket $ticket): TicketResource
     {
         $ticket->close();
 
@@ -73,9 +73,9 @@ class TicketController extends Controller
         return response()->json(null, 204);
     }
 
-    public function like(Ticket $ticket, LikeService $service): TicketResource
+    public function like(Ticket $ticket): TicketResource
     {
-        $service->like($ticket->id, Ticket::class);
+        $ticket->like();
 
         return TicketResource::make($ticket);
     }

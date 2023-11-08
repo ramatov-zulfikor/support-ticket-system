@@ -21,4 +21,14 @@ trait Likeable
             return $this->likes()->where('author_id', Auth::id())->exists();
         }
     }
+
+    public function like(): void
+    {
+        Like::query()
+            ->updateOrCreate([
+                'author_id' => Auth::id(),
+                'likeable_id' => $this->id,
+                'likeable_type' => self::class
+            ]);
+    }
 }
