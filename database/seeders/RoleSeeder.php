@@ -14,12 +14,12 @@ class RoleSeeder extends Seeder
             [
                 'id' => 1,
                 'name' => RoleEnum::ADMIN,
-                'guard_name' => 'web'
+                'guard_name' => 'api'
             ],
             [
                 'id' => 2,
                 'name' => RoleEnum::USER,
-                'guard_name' => 'web'
+                'guard_name' => 'api'
             ],
         ];
 

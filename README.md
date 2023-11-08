@@ -10,4 +10,4 @@
 - [x] Comment
 - [x] Like
 - [x] API documentation
-- [ ] API testing
+- [x] API testing
