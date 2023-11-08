@@ -40,6 +40,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::controller('TicketController')->prefix('tickets')->group(function () {
         Route::post('/', 'store');
         Route::put('{ticket}', 'update');
+        Route::patch('{ticket}/close', 'close');
         Route::delete('{ticket}', 'destroy');
         Route::post('{ticket}/like', 'like');
     });

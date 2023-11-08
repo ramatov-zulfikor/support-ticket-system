@@ -20,7 +20,7 @@ class TicketRequest extends FormRequest
 
     public function rules(): array
     {
-        if ($this->method() === 'DELETE') {
+        if ($this->method() === 'DELETE' || $this->method() === 'PATCH') {
             return [];
         }
 

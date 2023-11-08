@@ -16,6 +16,7 @@ class TicketListResource extends JsonResource
             'name' => $this->name,
             'description' => Str::limit($this->description),
             'type' => Str::title($this->type->name),
+            'is_closed' => boolval($this->is_closed),
             'likes_count' => $this->likes_count,
             'liked' => Auth::check() ? $this->isLikedByCurrentUser() : false,
             'created_at' => strtotime($this->created_at),

@@ -59,6 +59,13 @@ class TicketController extends Controller
         return TicketResource::make($ticket);
     }
 
+    public function close(TicketRequest $request, Ticket $ticket)
+    {
+        $ticket->close();
+
+        return TicketResource::make($ticket);
+    }
+
     public function destroy(TicketRequest $request, Ticket $ticket): JsonResponse
     {
         $ticket->delete();

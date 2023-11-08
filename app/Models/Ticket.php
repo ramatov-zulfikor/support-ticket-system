@@ -19,6 +19,7 @@ class Ticket extends Model
         'name',
         'description',
         'type',
+        'is_closed',
     ];
 
     protected $casts = [
@@ -33,5 +34,11 @@ class Ticket extends Model
     public function tags(): BelongsToMany
     {
         return $this->belongsToMany(Tag::class);
+    }
+
+    public function close(): void
+    {
+        $this->is_closed = true;
+        $this->saveQuietly();
     }
 }
