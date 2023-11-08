@@ -19,8 +19,11 @@ class TicketController extends Controller
 {
     public function index(Request $request): AnonymousResourceCollection
     {
-        $query = Ticket::query();
         $perPage = $request->input('per_page', self::PER_PAGE);
+
+        $query = Ticket::query()
+            ->with('likes')
+            ->withCount('likes');
 
         if ($request->has('type')) {
             $type = Str::lower($request->input('type')) === Str::lower(TicketTypeEnum::ISSUE->name)

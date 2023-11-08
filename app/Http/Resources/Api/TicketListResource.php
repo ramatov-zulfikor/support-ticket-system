@@ -4,6 +4,7 @@ namespace App\Http\Resources\Api;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 class TicketListResource extends JsonResource
@@ -15,6 +16,8 @@ class TicketListResource extends JsonResource
             'name' => $this->name,
             'description' => Str::limit($this->description),
             'type' => Str::title($this->type->name),
+            'likes_count' => $this->likes_count,
+            'liked' => Auth::check() ? $this->isLikedByCurrentUser() : false,
             'created_at' => strtotime($this->created_at),
             'updated_at' => strtotime($this->updated_at),
         ];
