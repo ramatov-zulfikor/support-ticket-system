@@ -1,5 +1,7 @@
 # Support ticket system
 
+### [API documentation](https://documenter.getpostman.com/view/17311429/2s9YXh631e)
+
 ## TODO:
 
 - [x] User
@@ -7,5 +9,5 @@
 - [x] Tag
 - [x] Comment
 - [x] Like
-- [ ] API documentation
+- [x] API documentation
 - [ ] API testing
