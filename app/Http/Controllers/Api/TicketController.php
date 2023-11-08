@@ -8,6 +8,7 @@ use App\Http\Requests\Api\TicketRequest;
 use App\Http\Resources\Api\TicketListResource;
 use App\Http\Resources\Api\TicketResource;
 use App\Models\Ticket;
+use App\Services\LikeService;
 use App\Services\TicketService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -60,5 +61,12 @@ class TicketController extends Controller
         $ticket->delete();
 
         return response()->json(null, 204);
+    }
+
+    public function like(Ticket $ticket, LikeService $service): TicketResource
+    {
+        $service->like($ticket->id, Ticket::class);
+
+        return TicketResource::make($ticket);
     }
 }

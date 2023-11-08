@@ -41,6 +41,7 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::post('/', 'store');
         Route::put('{ticket}', 'update');
         Route::delete('{ticket}', 'destroy');
+        Route::post('{ticket}/like', 'like');
     });
 
     Route::controller('TicketCommentController')->prefix('tickets/{ticket}/comments')->group(function () {

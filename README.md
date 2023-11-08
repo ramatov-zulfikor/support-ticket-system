@@ -6,5 +6,5 @@
 - [x] Ticket
 - [x] Tag
 - [x] Comment
-- [ ] Like
+- [x] Like
 - [ ] API documentation
